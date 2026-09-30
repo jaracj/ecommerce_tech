@@ -1,16 +1,23 @@
-# React + Vite
+# Tienda Tech
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
+Este proyecto es la estructura base de un sitio web de e-commerce desarrollado con React y Vite. Se trata de una tienda de venta de insumos tecnológicos.
 
-Currently, two official plugins are available:
+## Tecnologías utilizadas
+- React 19
+- Vite
+- JavaScript
+- Git y GitHub
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Instrucciones para instalar y ejecutar el proyecto
+1. Clonar el repositorio:
+   git clone https://github.com/jaracj/ecommerce_tech
 
-## React Compiler
+2. Ingresar a la carpeta del proyecto
+   cd tienda-tech
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+3. Instalar las dependencias
+   npm install 
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+4. Ejecutar servidor
+   npm run dev
