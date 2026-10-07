@@ -37,5 +37,5 @@ Este proyecto es la estructura base de un sitio web de e-commerce desarrollado c
 - **Correcciones**: Se eliminó el icono "colgado" de la carpeta public.
 - **Navbar**: Barra de navegación principal que contiene el branding de la tienda, los enlaces para las categorías de productos y el widget del carrito de compras.
 - **CartWidget**: Componente hijo incorporado en la Navbar. Muestra el ícono del carrito de compras y un contador estático con la cantidad de productos.
-- **React Icons**: NO solicitado, pero se instaló e implementó la librería "react-icons" para renderizar iconos. En este caso el carrito en "CartWidget".
+- **React Icons**: Se instaló e implementó la librería "react-icons" para renderizar iconos. En este caso el carrito en "CartWidget".
 - **ItemListContainer**: Componente contenedor principal que recibe y renderiza un mensaje de bienvenida dinámico a través de `props`.
