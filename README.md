@@ -12,17 +12,25 @@ Este proyecto es la estructura base de un sitio web de e-commerce desarrollado c
 
 ## Instrucciones para instalar y ejecutar el proyecto
 1. Clonar el repositorio:
+   ```bash
    git clone https://github.com/jaracj/ecommerce_tech
+   ```
 
 2. Ingresar a la carpeta del proyecto
    // En mi PC lo arme bajo "tienda-tech", pero al repo lo cree como "ecommerce_tech"
+   ```bash
    cd ecommerce_tech
+   ```
 
 3. Instalar las dependencias
+   ```bash
    npm install
+   ```
 
 4. Ejecutar servidor
+   ```bash
    npm run dev
+   ```
 
 ## Componentes creados en este módulo y modificaciones pedidas en entrega #1
 - **Navbar**: Barra de navegación principal que contiene el branding de la tienda, los enlaces para las categorías de productos y el widget del carrito de compras.
