@@ -1,12 +1,14 @@
-import './App.css'
+import Navbar from "./components/Navbar";
+import ItemListContainer from "./components/ItemListContainer";
+import "./App.css";
 
 function App() {
   return (
-    <main style={{ textAlign: 'center', marginTop: '50px', fontFamily: 'sans-serif' }}>
-      <h1>Bienvenido a Tienda_Tech</h1>
-      <p>Estructura base del proyecto e-commerce en React</p>
-    </main>
-  )
+    <>
+      <Navbar />
+      <ItemListContainer greeting="¡Bienvenidos a Tienda Tech! Encontrá la mejor tecnología aquí." />
+    </>
+  );
 }
 
-export default App
+export default App;

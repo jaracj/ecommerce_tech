@@ -7,6 +7,7 @@ Este proyecto es la estructura base de un sitio web de e-commerce desarrollado c
 - React 19
 - Vite
 - JavaScript
+- React Icons
 - Git y GitHub
 
 ## Instrucciones para instalar y ejecutar el proyecto
@@ -14,10 +15,17 @@ Este proyecto es la estructura base de un sitio web de e-commerce desarrollado c
    git clone https://github.com/jaracj/ecommerce_tech
 
 2. Ingresar a la carpeta del proyecto
-   cd tienda-tech
+   // En mi PC lo arme bajo "tienda-tech", pero al repo lo cree como "ecommerce_tech"
+   cd ecommerce_tech
 
 3. Instalar las dependencias
-   npm install 
+   npm install
 
 4. Ejecutar servidor
    npm run dev
+
+## Componentes creados en este módulo y modificaciones pedidas en entrega #1
+- **Navbar**: Barra de navegación principal que contiene el branding de la tienda, los enlaces para las categorías de productos y el widget del carrito de compras.
+- **CartWidget**: Componente hijo incorporado en la Navbar. Muestra el ícono del carrito de compras y un contador estático con la cantidad de productos.
+- **React Icons**: NO solicitado, pero se instaló e implementó la librería "react-icons" para renderizar iconos. En este caso el carrito en "CartWidget".
+- **ItemListContainer**: Componente contenedor principal que recibe y renderiza un mensaje de bienvenida dinámico a través de `props`.
