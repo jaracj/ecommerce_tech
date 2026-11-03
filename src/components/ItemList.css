@@ -65,3 +65,14 @@
 .main-container h1 {
   margin-bottom: 30px;
 }
+
+.error-message {
+  color: #e74c3c;
+  background-color: #fdf2f2;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+}

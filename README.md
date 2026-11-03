@@ -33,3 +33,40 @@ Este proyecto es la estructura base de un sitio web de e-commerce desarrollado c
    npm run dev
    ```
 
+## Simulación de carga asíncrona de datos
+
+Para simular una API real, el proyecto incluye un módulo de mock (`src/mock/asyncMock.js`) que exporta dos funciones asíncronas:
+
+### `getProducts()`
+- Retorna una **Promise** que se resuelve después de **2 segundos** (`setTimeout` de 2000ms).
+- Devuelve un array de **5 productos** con la siguiente estructura:
+  ```js
+  {
+    id: Number,
+    name: String,
+    description: String,
+    price: Number,
+    category: String,
+    img: String,
+    stock: Number
+  }
+  ```
+
+### `getProductById(productId)`
+- Retorna una **Promise** que se resuelve después de **1 segundo** (`setTimeout` de 1000ms).
+- Busca el producto por `id` en el mismo array.
+- Si lo encuentra: **resuelve** con el objeto producto.
+- Si no existe: **rechaza** con `Error("Producto no encontrado")`.
+
+### Flujo de carga en la aplicación
+1. **ItemListContainer**: Al montarse, usa `useEffect` (con array de dependencias vacío `[]`) para llamar a `getProducts()`.
+   - Mientras la promesa no resuelve: muestra **"Cargando productos..."**.
+   - Si resuelve: guarda los productos en estado (`useState`) y renderiza `<ItemList>`.
+   - Si rechaza: muestra un **mensaje de error visible** al usuario.
+
+2. **ItemList**: Recibe el array de productos por `props` y usa `.map()` para renderizar cada `<Item key={product.id} />`.
+
+3. **Item**: Componente de presentación que muestra la tarjeta del producto (imagen, nombre, precio, stock).
+
+4. **ItemDetailContainer**: Similar, usa `getProductById(1)` (id temporal) y muestra estado de carga / error / detalle del producto.
+   

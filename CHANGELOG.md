@@ -23,3 +23,23 @@
 - El contenedor obtiene y guarda los datos.
 - ItemList se encarga del mapeo.
 - Item se encarga de la presentación visual.
+
+---
+
+## Módulo #4 - Detalle de producto
+
+### Nuevos archivos
+- `src/components/ItemDetailContainer.jsx` — Contenedor: lógica de carga, `useEffect` + `getProductById`, estado `product`, loading.
+- `src/components/ItemDetail.jsx` — Presentación: layout e-commerce (imagen, nombre, precio, categoría, descripción, stock).
+- `src/components/ItemDetail.css` — Estilos del detalle (grid responsive, tipografía, colores).
+- `src/components/ItemCount.jsx` — Contador reutilizable (props: `stock`, `initial`, `onAdd`; no supera stock, no baja de 1).
+
+### Modificaciones
+- `src/mock/asyncMock.js` — Agregada `getProductById(productId)`: Promise con `setTimeout` 1s, busca por `id`, resuelve producto o rechaza con Error.
+
+### Flujo
+1. `ItemDetailContainer` define `productId` temporal (1) → `useEffect` llama `getProductById`.
+2. Mientras carga: muestra "Cargando detalle del producto...".
+3. Al resolver: guarda en estado → renderiza `<ItemDetail product={product} />`.
+4. `ItemDetail` muestra info completa + `<ItemCount stock={product.stock} onAdd={...} />`.
+5. `ItemCount` maneja cantidad (botones +/-) y botón "Agregar al Carrito" con alerta.
