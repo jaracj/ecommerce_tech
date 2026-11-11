@@ -43,3 +43,16 @@
 3. Al resolver: guarda en estado → renderiza `<ItemDetail product={product} />`.
 4. `ItemDetail` muestra info completa + `<ItemCount stock={product.stock} onAdd={...} />`.
 5. `ItemCount` maneja cantidad (botones +/-) y botón "Agregar al Carrito" con alerta.
+
+---
+
+## Módulo 5: Navegación y Routing (Checkpoint 3)
+
+Se implementó la navegación completa tipo SPA (Single Page Application) utilizando `react-router-dom`:
+- **Rutas Anidadas**: Se creó un componente `Layout` que mantiene el `Navbar` y un nuevo `Footer` persistentes en todas las vistas mediante `<Outlet />`.
+- **Rutas Dinámicas**: 
+  - `/category/:categoryId`: Filtra los productos mostrados según la categoría seleccionada en la URL.
+  - `/item/:id`: Muestra el detalle de un producto específico, capturando el ID mediante `useParams`.
+- **Navegación sin recargas**: Se reemplazaron todas las etiquetas `<a>` por `<Link>` y `<NavLink>` de React Router.
+- **Manejo de Errores**: Se agregó una ruta comodín (`*`) que renderiza un componente `NotFound` (Error 404) personalizado con enlace de retorno al inicio.
+- **Optimización de Efectos**: Los `useEffect` en los contenedores incluyen correctamente los parámetros de la URL (`categoryId`, `id`) en sus arrays de dependencias para garantizar la sincronía de datos al cambiar de ruta.

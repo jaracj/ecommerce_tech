@@ -69,4 +69,20 @@ Para simular una API real, el proyecto incluye un módulo de mock (`src/mock/asy
 3. **Item**: Componente de presentación que muestra la tarjeta del producto (imagen, nombre, precio, stock).
 
 4. **ItemDetailContainer**: Similar, usa `getProductById(1)` (id temporal) y muestra estado de carga / error / detalle del producto.
-   
+
+## Módulo 5: Navegación con React Router
+
+En esta entrega se implementó la navegación completa de la tienda usando `react-router-dom`.
+
+### Se agregó:
+
+- **react-router-dom**: Se instaló para manejar las rutas de la aplicación.
+- **Layout con rutas anidadas**: Se creó un componente `Layout.jsx` que mantiene el Navbar y un Footer visibles en todas las páginas usando `<Outlet />`.
+- **Rutas dinámicas**:
+  - `/` -> Página de inicio, muestra todos los productos.
+  - `/category/:categoryId` -> Filtra productos por categoría (procesadores, memorias, almacenamiento, placas de video).
+  - `/item/:id` -> Muestra el detalle de un producto específico usando `useParams` para capturar el ID de la URL.
+  - `*` → Ruta comodín que muestra un componente `NotFound` (Error 404) cuando la URL no existe.
+- **Navegación sin recargas**: Se reemplazaron todas las etiquetas `<a>` por `<NavLink>` en el Navbar y `<Link>` en las tarjetas de producto, para que la navegación sea interna y no recargue la página.
+- **Filtrado por categoría**: Se agregó la función `getProductsByCategory` al mock, y el `ItemListContainer` ahora usa `useParams` para detectar si hay una categoría en la URL y filtrar los productos automáticamente.
+- **Detalle dinámico**: El `ItemDetailContainer` ahora captura el ID desde la URL con `useParams` en lugar de tener un ID hardcodeado.
