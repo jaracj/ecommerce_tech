@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { getProductById } from "../mock/asyncMock";
 import ItemDetail from "./ItemDetail";
 
 function ItemDetailContainer() {
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
-  const productId = 1; // TEMPORAL: en el Módulo 5 vendrá de la URL
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getProductById(productId)
+    setLoading(true);
+    getProductById(id)
       .then((foundProduct) => {
         setProduct(foundProduct);
         setError(null);
@@ -16,11 +19,15 @@ function ItemDetailContainer() {
       .catch((error) => {
         console.error("Error:", error);
         setError("No se pudo cargar el detalle del producto. Por favor, intente nuevamente más tarde.");
+      })
+      .finally(() => {
+        setLoading(false);
       });
-  }, [productId]);
+  }, [id]);
 
+  if (loading) return <p style={{ textAlign: "center", marginTop: "50px" }}>Cargando detalle del producto...</p>;
   if (error) return <p style={{ textAlign: "center", marginTop: "50px", color: "red" }}>{error}</p>;
-  if (!product) return <p style={{ textAlign: "center", marginTop: "50px" }}>Cargando detalle del producto...</p>;
+  if (!product) return <p style={{ textAlign: "center", marginTop: "50px" }}>Producto no encontrado.</p>;
 
   return <ItemDetail product={product} />;
 }
