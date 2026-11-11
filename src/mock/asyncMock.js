@@ -62,3 +62,12 @@ export const getProductById = (productId) => {
     }, 1000);
   });
 };
+
+export const getProductsByCategory = (categoryId) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const filteredProducts = products.filter((p) => p.category === categoryId);
+      resolve(filteredProducts);
+    }, 2000);
+  });
+};
