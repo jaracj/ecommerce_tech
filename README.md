@@ -86,3 +86,19 @@ En esta entrega se implementó la navegación completa de la tienda usando `reac
 - **Navegación sin recargas**: Se reemplazaron todas las etiquetas `<a>` por `<NavLink>` en el Navbar y `<Link>` en las tarjetas de producto, para que la navegación sea interna y no recargue la página.
 - **Filtrado por categoría**: Se agregó la función `getProductsByCategory` al mock, y el `ItemListContainer` ahora usa `useParams` para detectar si hay una categoría en la URL y filtrar los productos automáticamente.
 - **Detalle dinámico**: El `ItemDetailContainer` ahora captura el ID desde la URL con `useParams` en lugar de tener un ID hardcodeado.
+
+## Módulo 6: Carrito de Compras con Context API
+
+En esta entrega se le dio dinmica al carrito de compras usando Context API, para que la "cantidad" de lo que el usuario elige se guarde y se pueda ver en cualquier parte de la app sin perderse al cambiar de página.
+
+### Agregue:
+
+- **CartContext**: Se creó un archivo nuevo que guarda la lista del carrito y tiene las funciones para agregar productos, sacarlos por ID o vaciar todo el carrito.
+- **CartProvider**: Se envolvió la aplicación en `main.jsx` con este proveedor para que el estado del carrito esté disponible en toda la aplicación.
+- **CartWidget dinámico**: Ahora el ícono del carrito en el Navbar muestra la cantidad real de productos. Si el carrito está vacío, el numerito no se muestra. Además, ahora es un link que lleva directo a la vista del carrito.
+- **Integración en Detalle**: Al agregar un producto desde el detalle, se guarda en el contexto. Si el producto ya está en el carrito, aparece un botón extra que dice "Terminar mi compra" y te lleva a revisar el pedido.
+- **Vista del Carrito (`/cart`)**: Se armó una página nueva donde:
+  - Si no hay productos, muestra un mensaje invitando a volver a la tienda.
+  - Si hay productos, muestra una lista con la foto, nombre, cantidad, precio unitario y el subtotal de cada uno.
+  - Muestra el precio total de toda la compra.
+  - Tiene botones para eliminar productos individuales o vaciar el carrito por completo, y un botón de "Finalizar compra".
