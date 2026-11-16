@@ -1,9 +1,14 @@
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 import ItemCount from "./ItemCount";
 import "./ItemDetail.css";
 
 function ItemDetail({ product }) {
+  const { addItem, isInCart } = useCart();
+  const navigate = useNavigate();
+
   const onAdd = (quantity) => {
-    alert(`Agregaste ${quantity} unidad(es) de ${product.name} al carrito.`);
+    addItem(product, quantity);
   };
 
   return (
@@ -19,7 +24,15 @@ function ItemDetail({ product }) {
           <span className="item-detail-price">${product.price.toLocaleString('es-AR')}</span>
           <span className="item-detail-stock">Stock disponible: {product.stock} unidades</span>
         </div>
-        <ItemCount stock={product.stock} onAdd={onAdd} />
+        <ItemCount stock={product.stock} initial={1} onAdd={onAdd} />
+        {isInCart(product.id) && (
+          <button 
+            onClick={() => navigate('/cart')}
+            style={{ marginTop: "15px", padding: "10px 20px", backgroundColor: "#28a745", color: "white", border: "none", borderRadius: "5px", fontWeight: "bold", cursor: "pointer" }}
+          >
+            Terminar mi compra
+          </button>
+        )}
       </div>
     </div>
   );
