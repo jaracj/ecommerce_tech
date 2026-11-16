@@ -10,7 +10,7 @@ function NotFound() {
         to="/" 
         style={{ color: "#61dafb", fontSize: "1.2rem", textDecoration: "underline", fontWeight: "bold" }}
       >
-        ← Volver al inicio
+        Volver al inicio
       </Link>
     </div>
   );
