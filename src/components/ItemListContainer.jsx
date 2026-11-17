@@ -31,7 +31,7 @@ function ItemListContainer() {
   }, [categoryId]);
 
   const title = categoryId 
-    ? `Categoría: ${categoryId.replace("-", " ")}` 
+    ? `Categoría: ${categoryId.replace(/-/g, " ")}` 
     : "¡Bienvenidos a Tienda Tech! Encontrá la mejor tecnología aquí.";
 
   return (

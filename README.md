@@ -59,7 +59,7 @@ Para simular una API real, el proyecto incluye un módulo de mock (`src/mock/asy
 - Si no existe: **rechaza** con `Error("Producto no encontrado")`.
 
 ### Flujo de carga en la aplicación
-1. **ItemListContainer**: Al montarse, usa `useEffect` (con array de dependencias vacío `[]`) para llamar a `getProducts()`.
+1. **ItemListContainer**: Al montarse, usa `useEffect` para llamar a `getProducts()`.
    - Mientras la promesa no resuelve: muestra **"Cargando productos..."**.
    - Si resuelve: guarda los productos en estado (`useState`) y renderiza `<ItemList>`.
    - Si rechaza: muestra un **mensaje de error visible** al usuario.
@@ -68,7 +68,7 @@ Para simular una API real, el proyecto incluye un módulo de mock (`src/mock/asy
 
 3. **Item**: Componente de presentación que muestra la tarjeta del producto (imagen, nombre, precio, stock).
 
-4. **ItemDetailContainer**: Similar, usa `getProductById(1)` (id temporal) y muestra estado de carga / error / detalle del producto.
+4. **ItemDetailContainer**: Similar, usa `getProductById(id)` y muestra estado de carga / error / detalle del producto.
 
 ## Módulo 5: Navegación con React Router
 
